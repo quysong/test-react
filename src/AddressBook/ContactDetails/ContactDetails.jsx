@@ -9,7 +9,6 @@ import "./ContactDetails.css";
 
 const ContactDetails = ({ data, hasFailedToFetch }) => {
   const { name, phone, addressLines } = (data || {});
-
   const wrapped = (node) => (
     <section className="ContactDetails">
       {node}
@@ -44,7 +43,7 @@ const ContactDetails = ({ data, hasFailedToFetch }) => {
       {/* TODO something is wrong here */}
       <div className="ContactDetails_data_item ContactDetails_address">
         <span>Address</span>
-        <span>{addressLines[0]}</span>
+        <span>{addressLines.map(((item, index) => index !== addressLines.length - 1 ? item + ', ' : item))}</span>
       </div>
 
     </div>,

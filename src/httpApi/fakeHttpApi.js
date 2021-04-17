@@ -79,7 +79,6 @@ class FakeHttpApi {
   getContact ({ contactId }) {
 
     const contact = this._contacts.find(contact => contact.id === contactId);
-
     if (!contact) return fakeResponse({
       status: _404_NOT_FOUND,
     });

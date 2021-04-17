@@ -36,7 +36,9 @@ class SearchContacts extends React.Component {
       <section className="SearchContacts">
         <Downshift
           itemToString={item => (item ? item.value : "")}
-          onChange={item => onMatchingContactSelect(item)}
+          onChange={item => {
+            onMatchingContactSelect(item)
+          }}
         >
           {({
               isOpen,
@@ -83,7 +85,7 @@ const mapReduxDispatchToProps = dispatch => ({
     (newPhrase) => dispatch(updateSearchPhrase(newPhrase)),
   // TODO something is wrong here
   onMatchingContactSelect:
-    (selectedMatchingContact) => dispatch(updateSearchPhrase(selectedMatchingContact.value)),
+    (selectedMatchingContact) => dispatch(selectMatchingContact(selectedMatchingContact)),
 });
 
 export default connectWithRedux(

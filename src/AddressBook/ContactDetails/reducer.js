@@ -11,7 +11,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-
   switch (type) {
 
     // TODO something is missing here
@@ -25,7 +24,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_CONTACT_DETAILS__SUCCESS:
       return {
         ...state,
-        fetchedContact: null,
+        fetchedContact: payload.contactDetails,
       };
 
     case FETCH_CONTACT_DETAILS__FAILURE:
