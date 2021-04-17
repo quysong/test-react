@@ -86,7 +86,7 @@ describe("<ContactDetails>", () => {
       .toHaveText("John");
   });
 
-  it("render address line of fetched Contact Details", async () => {
+  it("render 1st address line of fetched Contact Details", async () => {
     // given
     const tree = renderContactDetails({
       fetchedContact: anyContact({
@@ -104,7 +104,7 @@ describe("<ContactDetails>", () => {
     expect(tree.find(".ContactDetails_address").find("span").at(0))
       .toHaveText("Address");
     expect(tree.find(".ContactDetails_address").find("span").at(1))
-      .toHaveText("line 1, line 2, line 3");
+      .toHaveText("line 1");
   });
 
 });

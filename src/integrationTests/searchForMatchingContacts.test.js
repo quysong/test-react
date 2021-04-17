@@ -33,7 +33,7 @@ describe("search for matching Contacts", () => {
       tree.searchPhraseInput().changeValueTo("any");
       jest.runTimersToTime(SEARCH_REQUEST_MIN_INTERVAL_IN_MILLIS - 1);
 
-      expect(httpApi.getFirst5MatchingContacts).toHaveBeenCalledTimes(1);
+      expect(httpApi.getFirst5MatchingContacts).not.toHaveBeenCalled();
 
       jest.runTimersToTime(1);
 
@@ -49,7 +49,7 @@ describe("search for matching Contacts", () => {
       tree.searchPhraseInput().changeValueTo("second phrase");
       jest.runTimersToTime(SEARCH_REQUEST_MIN_INTERVAL_IN_MILLIS - 1);
 
-      expect(httpApi.getFirst5MatchingContacts).toHaveBeenCalledTimes(2);
+      expect(httpApi.getFirst5MatchingContacts).toHaveBeenCalledTimes(1);
 
       jest.runTimersToTime(1);
 
@@ -177,7 +177,7 @@ describe("search for matching Contacts", () => {
       tree.searchPhraseInput().changeValueTo("second phrase");
       await tree.waitForHttp({ waitForResponse: false });
 
-      expect(tree.matchingContacts()).toExist();
+      expect(tree.matchingContacts()).not.toExist();
     });
 
     it("don't crash if no Matching Contact is selected for the first time", async () => {

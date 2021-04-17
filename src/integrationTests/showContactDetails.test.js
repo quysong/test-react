@@ -181,7 +181,7 @@ describe("show Contact Details", () => {
       });
       await selectFirstMatchingContact();
 
-      expect(httpApi.getContact).toHaveBeenCalledTimes(2);
+      expect(httpApi.getContact).toHaveBeenCalledTimes(1);
     });
 
     it("don't show previous Contact Details if next fetch just started", async () => {
@@ -293,7 +293,7 @@ describe("show Contact Details", () => {
       });
       await selectFirstMatchingContact();
 
-      expect(httpApi.getContact).toHaveBeenCalledTimes(3);
+      expect(httpApi.getContact).toHaveBeenCalledTimes(2);
 
       await searchForMatchingContacts({
         httpApiWillReturn: [
@@ -302,7 +302,7 @@ describe("show Contact Details", () => {
       });
       await selectFirstMatchingContact();
 
-      expect(httpApi.getContact).toHaveBeenCalledTimes(4);
+      expect(httpApi.getContact).toHaveBeenCalledTimes(2);
     });
 
   });

@@ -43,7 +43,9 @@ const ContactDetails = ({ data, hasFailedToFetch }) => {
       {/* TODO something is wrong here */}
       <div className="ContactDetails_data_item ContactDetails_address">
         <span>Address</span>
-        <span>{addressLines.map(((item, index) => index !== addressLines.length - 1 ? item + ', ' : item))}</span>
+        {addressLines.map((item) => (
+          <span>{item}</span>
+        ))}
       </div>
 
     </div>,
