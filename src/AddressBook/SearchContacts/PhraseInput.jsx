@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import debounce from "debounce-promise";
 import "./PhraseInput.css";
 
 class PhraseInput extends React.Component {
@@ -22,6 +22,7 @@ class PhraseInput extends React.Component {
       downshiftGetInputProps,
     } = this.props;
 
+
     return (
       <input
         {...downshiftGetInputProps({
@@ -30,7 +31,7 @@ class PhraseInput extends React.Component {
           ref: inputRef => this.inputRef = inputRef,
           placeholder: "To show contact's details, type its name…",
           value: phrase,
-          onChange: event => onPhraseChange("phrase"),
+          onChange: event => onPhraseChange(event.target.value),
         })}
       />
     );
