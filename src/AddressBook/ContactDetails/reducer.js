@@ -25,13 +25,14 @@ const reducer = (state = initialState, action) => {
     case FETCH_CONTACT_DETAILS__SUCCESS:
       return {
         ...state,
-        fetchedContact: null,
+        fetchedContact: payload.contactDetails,
       };
 
     case FETCH_CONTACT_DETAILS__FAILURE:
       return {
         ...state,
         fetchFailure: true,
+        
       };
 
     default:
