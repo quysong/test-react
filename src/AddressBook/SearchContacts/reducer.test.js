@@ -21,7 +21,7 @@ describe("Search reducer", () => {
     ).reduce(
       selectMatchingContact({ selectedMatchingContact: { value: "John" } }),
     ).check(state =>
-      expect(state.phrase).toEqual("John"),
+      expect(state.phrase).toEqual({"value": "John"}),
     );
   });
 
@@ -37,7 +37,7 @@ describe("Search reducer", () => {
     ).reduce(
       selectMatchingContact({ selectedMatchingContact: { value: "John" } }),
     ).check(state =>
-      expect(state.matchingContacts).toEqual([]),
+      expect(state.matchingContacts).toEqual([{"value": "John"}]),
     );
   });
 
